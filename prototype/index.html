@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prototype</title>
     <meta
       name="keywords"
@@ -12,35 +13,78 @@
   </head>
   <body>
     <header class="header">
-      <h1 class="title">Header</h1>
+      <img
+        class="logo"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR5m06mJsbTHNeUE8yj1Di5zQ6GReGTdyc0Ow&usqp=CAU"
+        alt="logo"
+      />
+      <div class="header-nav">
+        <div>About</div>
+        <div>Contact</div>
+        <div>Portfolio</div>
+      </div>
+      <button class="mobile-button"><div class="line"></div></button>
     </header>
+
     <nav class="nav">
       <h2 class="title">Navigation</h2>
     </nav>
     <section class="hero">
-      <p class="hero-title">
-        Hello Js Developer<span class="hero-text">Position</span>
-      </p>
+      <p class="hero-title">Hello Js Developer</p>
     </section>
+
     <div class="container">
       <aside class="sidebar">
         <div class="head">
           <h3 class="title">Sidebar</h3>
         </div>
-        <ul>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-        </ul>
+        <div class="sidebar-list">
+          <div><a href="#">About</a></div>
+          <div><a href="#">Portfolio</a></div>
+          <div><a href="#">Contact</a></div>
+        </div>
       </aside>
-      <main>
+      <main class="main">
         <h4>Main</h4>
-        <article><h4>Article</h4></article>
-        <article><h4>Article</h4></article>
+        <article class="article">
+          <h4>Article</h4>
+          <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и
+            вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на
+            латинице с начала XVI века. В то время некий безымянный печатник
+            создал большую коллекцию размеров и форм шрифтов, используя Lorem
+            Ipsum для распечат
+          </p>
+        </article>
+        <article class="article">
+          <h4>Article</h4>
+          <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и
+            вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на
+            латинице с начала XVI века. В то время некий безымянный печатник
+            создал большую коллекцию размеров и форм шрифтов, используя Lorem
+            Ipsum для распечат
+          </p>
+        </article>
       </main>
     </div>
-    <footer>
+    <footer class="footer">
       <h1>Footer</h1>
     </footer>
   </body>
+  <script>
+    const button = document.querySelector(".mobile-button");
+    const nav = document.querySelector(".header-nav");
+    button.addEventListener("click", () => {
+      nav.classList.toggle("active");
+      button.classList.toggle("active");
+    });
+
+    const button = document.querySelector(".mobile-button");
+    const nav = document.querySelector(".header-nav");
+    button.addEventListener("click", () => {
+      nav.classList.toggle("active");
+      button.classList.toggle("active");
+    });
+  </script>
 </html>

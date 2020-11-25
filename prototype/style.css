@@ -7,6 +7,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 button {
   border: none;
   background-color: transparent;
@@ -22,14 +26,36 @@ nav {
 }
 
 body {
-  background-color: #d3f0fd;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  flex: 1;
+  height: 200px;
+  background-color: green;
+  font-size: 30px;
+  color: #fff;
+  border: 1px solid #fff;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
-  background-color: #b6b4b4;
-  padding: 25px;
-  text-align: center;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px 25px;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
 }
 
 .title {
@@ -37,10 +63,35 @@ body {
   text-transform: uppercase;
 }
 
+.logo {
+  float: left;
+  max-width: 100px;
+  border-radius: 3px;
+}
+
+@keyframes nav {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: blue;
+  }
+  100% {
+    background-color: yellow;
+  }
+}
+
 .nav {
   background-color: #eb4865;
   padding: 15px 25px;
   text-align: center;
+}
+
+.nav:hover {
+  animation-name: nav;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
 }
 
 .sidebar {
@@ -58,8 +109,11 @@ body {
 }
 
 .hero {
-  padding-top: 150px;
-  min-height: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
   background-image: url("https://www.vrfitnessinsider.com/wp-content/uploads/2017/09/developer-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -67,14 +121,23 @@ body {
   background-attachment: fixed;
 }
 
+.hero:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(2 15 50 / 0.6);
+  top: 0;
+}
+
 .hero-title {
-  background: green;
   padding: 15px;
   font-size: 48px;
   font-weight: bold;
   color: #fff;
   text-align: center;
   position: relative;
+  z-index: 1;
 }
 
 .hero-text {
@@ -82,3 +145,183 @@ body {
   top: -45px;
   left: calc(50% - 70px);
 }
+
+.sidebar-list {
+  display: flex;
+  list-style: none;
+}
+
+.sidebar-list a {
+  padding: 5px 10px;
+  color: white;
+  display: block;
+}
+
+.sidebar-list a:hover {
+  text-decoration: underline;
+}
+
+.sidebar {
+  float: left;
+}
+
+.header-nav div {
+  padding: 5px 10px;
+}
+
+.header-nav {
+  display: flex;
+}
+
+.main {
+  padding: 25px;
+}
+
+.article {
+  padding: 20px;
+}
+
+.article h4 {
+  margin-bottom: 15px;
+}
+
+.footer {
+  padding: 25px;
+  background-color: #ccc;
+}
+
+.mobile-button {
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  display: none;
+}
+
+.mobile-button:after {
+  position: absolute;
+  border-radius: 3px;
+  width: 22px;
+  transition: 0.3s;
+  height: 2px;
+  background-color: grey;
+  content: "";
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  transform: translateX(-50%);
+}
+
+.line {
+  position: absolute;
+  border-radius: 3px;
+  width: 22px;
+  transition: 0.3s;
+  height: 2px;
+  background-color: grey;
+  top: 50%;
+  left: 50%;
+  margin-top: -1px;
+  transform: translateX(-50%);
+}
+
+.mobile-button:before {
+  transition: 0.3s;
+  position: absolute;
+  border-radius: 3px;
+  width: 22px;
+  height: 2px;
+  background-color: grey;
+  content: "";
+  top: 50%;
+  left: 50%;
+  margin-top: 6px;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: calc(100% - 30px);
+    margin-bottom: 15px;
+  }
+
+  .sidebar-list a:first-child {
+    padding-left: 0;
+  }
+
+  .main {
+    padding: 15px;
+  }
+
+  .article {
+    background: #ccc;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 15px;
+  }
+  .header-nav {
+    transition: 0.3s;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 76px;
+    background-color: #fff;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: -10px;
+  }
+
+  .mobile-button {
+    display: block;
+  }
+
+  .mobile-button.active .line {
+    opacity: 0;
+  }
+
+  .mobile-button.active:after {
+    margin-left: -2px;
+    transform: rotate(-45deg) translateX(-50%);
+    margin-top: -9px;
+  }
+
+  .mobile-button.active:before {
+    margin-left: -3px;
+    transform: rotate(43deg) translateX(-50%);
+  }
+
+  .header-nav.active {
+    opacity: 1;
+    margin-top: 0px;
+  }
+
+  .hero {
+    min-height: 300px;
+    background-position: -340px 0px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: 30px;
+  }
+}
+
+/* 1600px
+1366px
+1024px
+768px
+480px */
